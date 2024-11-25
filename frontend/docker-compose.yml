@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: node:18 # Node.js の公式イメージを使用
+    working_dir: /app # コンテナ内の作業ディレクトリ
+    volumes:
+      - .:/app
+      - /app/node_modules # node_modules をコンテナ内に保持
+    ports:
+      - "3000:3000" # ローカル開発サーバーのポートを公開
+    command: ["npm", "run", "serve"] # 開発サーバーを起動
